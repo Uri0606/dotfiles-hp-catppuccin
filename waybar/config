@@ -1,0 +1,103 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["pulseaudio", "bluetooth", "backlight", "clock", "battery", "power-profiles-daemon", "network", "custom/kdeconnect", "custom/lock", "custom/power"],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "sort-by-name": true,
+        "format": " {icon} ",
+        "format-icons": {
+            "default": ""
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
+    "clock": {
+        "timezone": "America/Mexico_City",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%d/%m/%Y}",
+        "format": " {:%H:%M}"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "on-click": "blueman-manager"
+    },
+    "backlight": {
+        "device": "amdgpu_bl1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 25
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-alt": "{icon}  {time}",
+        "format-icons": ["󰂃", "󰁻", "󰁽", "󰂀", "󰁹"],
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Perfil: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "󱓞",
+            "balanced": "",
+            "power-saver": "󰌪"
+        }
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "swaylock",
+        "format": ""
+    },
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout &",
+        "format": ""
+    },
+    "network": {
+        "format-wifi": " ",
+        "format-disconnected": "󰖪 Off",
+        "on-click": "kitty -e nmtui",
+        "tooltip-format": "{ifname} via {gwaddr} "
+    },
+    "custom/kdeconnect": {
+        "format": " ",
+        "on-click": "kdeconnect-app",
+        "on-click-right": "kdeconnect-sms",
+        "tooltip": false
+    }
+}

@@ -1,0 +1,131 @@
+@import "macchiato.css";
+
+* {
+    font-family: "Hack Nerd Font", "Symbols Nerd Font", sans-serif;
+    font-size: 17px;
+    min-height: 0;
+}
+
+#waybar {
+    background: transparent;
+    color: @text;
+    margin: 5px 5px;
+}
+
+#workspaces {
+    border-radius: 1rem;
+    margin: 5px;
+    background-color: @surface0;
+    margin-left: 1rem;
+}
+
+#workspaces button {
+    color: @lavender;
+    border-radius: 1rem;
+    padding: 0.4rem;
+}
+
+#workspaces button.active {
+    color: @sky;
+    border-radius: 1rem;
+}
+
+#workspaces button:hover {
+    color: @sapphire;
+    border-radius: 1rem;
+}
+
+/* Agregamos network y custom-kdeconnect al fondo general */
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#bluetooth,
+#custom-lock,
+#custom-power,
+#network,
+#custom-kdeconnect,
+#power-profiles-daemon {
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+}
+
+/* =======================================
+   PRIMERA PÍLDORA (Sistema y Conectividad) 
+   ======================================= */
+#pulseaudio {
+    color: @maroon;
+    border-radius: 1rem 0px 0px 1rem; /* Esquina izquierda de la píldora */
+    margin-left: 1rem;
+}
+
+#bluetooth {
+    color: @sapphire;
+    border-radius: 0; /* Plano de los lados */
+}
+#bluetooth.connected {
+    color: @blue;
+}
+
+#backlight {
+    color: @yellow;
+    border-radius: 0; /* Plano */
+}
+
+#battery {
+    color: @green;
+    border-radius: 0; /* Plano */
+}
+#battery.charging {
+    color: @green;
+}
+#battery.warning:not(.charging) {
+    color: @red;
+}
+
+#clock {
+    color: @blue;
+    border-radius: 0; /* Como ya no está al final, le quitamos la esquina redonda */
+}
+
+#network {
+    color: @lavender;
+    border-radius: 0; /* Plano */
+}
+
+#custom-kdeconnect {
+    color: @mauve;
+    border-radius: 0px 1rem 1rem 0px; /* Esquina derecha de esta píldora */
+    margin-right: 1rem;
+}
+#power-profiles-daemon {
+    color: @teal;
+    border-radius: 0; /* Plano de los lados para que fluya en la píldora */
+}
+
+/* =======================================
+   MÓDULOS INDEPENDIENTES Y SEGUNDA PÍLDORA
+   ======================================= */
+#custom-music {
+    color: @peach; /* Cámbialo a @peach para el tono naranja, o @yellow si lo prefieres más amarillo */
+    border-radius: 1rem;
+}
+
+#tray {
+    margin-right: 1rem;
+    border-radius: 1rem;
+}
+
+#custom-lock {
+    color: @lavender;
+    border-radius: 1rem 0px 0px 1rem; /* Esquina izquierda de los botones de apagado */
+}
+
+#custom-power {
+    color: @red;
+    border-radius: 0px 1rem 1rem 0px; /* Esquina derecha de los botones de apagado */
+    margin-right: 1rem;
+}
